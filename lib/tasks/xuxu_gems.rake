@@ -1,5 +1,5 @@
 namespace :xuxu_gems do
-  desc "Configura as gems e executa comandos no projeto Rails"
+  desc "Generate default gems"
   task :generate do
     XuxuGems::Config.setup
   end
