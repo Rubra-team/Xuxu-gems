@@ -5,7 +5,11 @@ require "xuxu_gems/railtie" if defined?(Rails)
 module XuxuGems
   class Error < StandardError; end
 
-  def self.setup
-    Config.setup
+  def self.default_gems
+    Config.default_gems
+  end
+
+  def self.advanced_gems
+    Config.advanced_gems
   end
 end
