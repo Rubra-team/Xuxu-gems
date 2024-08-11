@@ -1,0 +1,23 @@
+devise:
+  name: "devise"
+  git: "https://github.com/heartcombo/devise"
+
+devise-i18n:
+  name: "devise-i18n"
+  git: "https://github.com/tigrish/devise-i18n"
+
+pundit:
+  name: "pundit"
+  git: "https://github.com/varvet/pundit"
+
+rolify:
+  name: "rolify"
+  git: "https://github.com/RolifyCommunity/rolify"
+
+active_storage_validations:
+  name: "active_storage_validations"
+  git: "https://github.com/igorkasyanchuk/active_storage_validations"
+
+acts_as_list:
+  name: "acts_as_list"
+  git: "https://github.com/brendon/acts_as_list"
