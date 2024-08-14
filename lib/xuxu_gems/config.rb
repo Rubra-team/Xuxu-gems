@@ -16,7 +16,8 @@ module XuxuGems
 
     def self.add_default_gems
       puts "Adding default gems to Gemfile..."
-      default_gems = YAML.load_file("xuxu_gems/files/default_gems.yml")
+      yml_path = File.join(__dir__, "files/default_gems.yml")
+      default_gems = YAML.load_file(yml_path)
 
       default_gems.each do |gem_info|
         gem_name = gem_info["name"]
@@ -36,7 +37,8 @@ module XuxuGems
     end
 
     def self.ask_for_optional_gems
-      advanced_gems = YAML.load_file("xuxu_gems/files/advanced_gems.yml")
+      yml_path = File.join(__dir__, "files/advanced_gems.yml")
+      advanced_gems = YAML.load_file(yml_path)
       advanced_gems.each_value do |gem_info|
         gem_name = gem_info["name"]
         gem_git = gem_info["git"]
