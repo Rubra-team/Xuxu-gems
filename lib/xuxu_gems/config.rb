@@ -19,7 +19,7 @@ module XuxuGems
       yml_path = File.join(__dir__, "files/default_gems.yml")
       default_gems = YAML.load_file(yml_path)
 
-      default_gems.each do |gem_info|
+      default_gems.each_value do |gem_info|
         gem_name = gem_info["name"]
         gem_git = gem_info["git"]
 
