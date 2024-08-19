@@ -1,7 +1,9 @@
 annotate:
   name: "annotate"
   git: "https://github.com/ctran/annotate_models.git"
+  git_url: false
 
 rubocop-rails:
   name: "rubocop-rails"
   git: "https://github.com/rubocop/rubocop-rails.git"
+  git_url: false

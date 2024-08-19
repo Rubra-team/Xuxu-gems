@@ -5,6 +5,8 @@ module XuxuGems
   require "yaml"
 
   class Config
+    include Helpers::AddGemToGemfile
+
     def self.default_gems
       add_default_gems
       run_default_commands
@@ -21,10 +23,14 @@ module XuxuGems
 
       default_gems.each_value do |gem_info|
         gem_name = gem_info["name"]
-        gem_git = gem_info["git"]
+        git_url = gem_info["git_url"]
 
-
-        add_gem_to_gemfile(gem_name, git: gem_git)
+        if git_url.eql?(true)
+          gem_git = gem_info["git"]
+          add_gem_to_gemfile(gem_name, git: gem_git)
+        else
+          add_gem_to_gemfile(gem_name)
+        end
       end
     end
 
@@ -39,29 +45,25 @@ module XuxuGems
     def self.ask_for_optional_gems
       yml_path = File.join(__dir__, "files/advanced_gems.yml")
       advanced_gems = YAML.load_file(yml_path)
+
       advanced_gems.each_value do |gem_info|
         gem_name = gem_info["name"]
-        gem_git = gem_info["git"]
+        git_url = gem_info["git_url"]
 
         print "Would you like to install the #{gem_name} gem? (Y/n): "
         answer = gets.chomp.upcase
-        add_gem_to_gemfile(gem_name, git: gem_git) if answer == "Y"
+
+        if answer == "Y"
+          if git_url.eql?(true)
+            gem_git = gem_info["git"]
+            add_gem_to_gemfile(gem_name, git: gem_git)
+          else
+            add_gem_to_gemfile(gem_name)
+          end
+        end
       end
+
       system("bundle install")
-    end
-
-    def self.add_gem_to_gemfile(gem_name, options = {})
-      gemfile_content = File.read("Gemfile")
-      return if gemfile_content.include?(gem_name)
-
-      gem_line = "gem '#{gem_name}'"
-      gem_line += ", require: #{options[:require]}" if options[:require]
-      gem_line += ", git: '#{options[:git]}'" if options[:git]
-      File.open("Gemfile", "a") do |file|
-        file.puts gem_line
-      end
-      puts "[#{gem_name}] added to Gemfile."
-
     end
   end
 end
