@@ -3,6 +3,8 @@
 # config
 module XuxuGems
   require "yaml"
+  require_relative "../helpers/add_gem_to_gemfile"
+
 
   class Config
     include Helpers::AddGemToGemfile
