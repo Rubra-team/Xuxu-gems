@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Helpers
   # Helper para adicionar gems ao Gemfile
   module AddGemToGemfile

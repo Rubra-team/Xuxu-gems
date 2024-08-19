@@ -1,13 +1,9 @@
-# frozen_string_literal: true
-
-# config
 module XuxuGems
   require "yaml"
   require_relative "../helpers/add_gem_to_gemfile"
 
-
   class Config
-    include Helpers::AddGemToGemfile
+    extend Helpers::AddGemToGemfile
 
     def self.default_gems
       add_default_gems
@@ -38,10 +34,10 @@ module XuxuGems
 
     def self.run_default_commands
       system("rails g annotate:install")
-      puts "Gem [Annotate] are installed and configured."
+      puts "Gem [Annotate] is installed and configured."
 
       system("rubocop --auto-gen-config")
-      puts "Gem [Rubocop] are installed and configured."
+      puts "Gem [Rubocop] is installed and configured."
     end
 
     def self.ask_for_optional_gems
