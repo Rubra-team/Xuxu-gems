@@ -16,7 +16,7 @@ pundit:
 rolify:
   name: "rolify"
   git: "https://github.com/RolifyCommunity/rolify"
-  git_url: true
+  git_url: false
 
 active_storage_validations:
   name: "active_storage_validations"
