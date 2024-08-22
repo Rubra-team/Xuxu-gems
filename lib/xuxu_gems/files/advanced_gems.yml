@@ -6,12 +6,12 @@ devise:
 devise-i18n:
   name: "devise-i18n"
   git: "https://github.com/tigrish/devise-i18n"
-  git_url: true
+  git_url: false
 
 pundit:
   name: "pundit"
   git: "https://github.com/varvet/pundit"
-  git_url: true
+  git_url: false
 
 rolify:
   name: "rolify"
