@@ -176,7 +176,7 @@ GEM
     regexp_parser (2.9.2)
     reline (0.5.9)
       io-console (~> 0.5)
-    rexml (3.3.2)
+    rexml (3.3.6)
       strscan
     rubocop (1.64.1)
       json (~> 2.3)
@@ -206,7 +206,6 @@ GEM
     zeitwerk (2.6.16)
 
 PLATFORMS
-  ruby
   x86_64-linux
 
 DEPENDENCIES
